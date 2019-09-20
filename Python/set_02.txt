@@ -1,0 +1,201 @@
+1.'''The greatest common divisor (GCD) of a and b is the largest number that divides both of them with no remainder.
+One way to find the GCD of two numbers is based on the observation that if r is the remainder when a is divided by b, then gcd(a, b) = gcd(b, r).
+As a base case, we can use gcd(a, 0) = a. Write a function called gcd that takes parameters a and b and returns their greatest common divisor.'''
+def gcd(a,b):
+    if a==0:
+        print("GCD is:",b)
+    elif b==0:
+        print("GCD is:",a)
+    elif a>b:
+        while b!=0:
+            temp=a
+            a=b
+            b=(temp%b)
+        print("GCD is ",a)
+    else:
+        temp=a
+        a=b
+        b=temp
+        while b!=0:
+            temp=a
+            a=b
+            b=(temp%b)
+        print("GCD is ",a)
+
+
+gcd(36,60)
+
+GCD is  12
+
+2.A number, a, is a power of b if it is divisible by b and a/b is a power of b. Write a function called is_power that takes parameters a and b and returns True if a is a power of b. Note: you will have to think about the base case.
+
+def is_power(a,b):
+    if a%b==0:
+        for i in range(1,a):
+            if b**i==a:
+                return True
+    return False
+
+print(is_power(25,5))
+
+
+True
+
+3.Observe the following function definitions. They Calculate the Factorial as per the Mathematical definition 1! = 1 (n + 1)! = (n + 1) * n! Implement factI(n) as an Iterative Implementation & factR(n) as a Recursive Implementation
+
+def factI(n):
+    if n>0:
+        fact=n
+        for i in range(1,n):
+            fact=fact*(n-1)
+            n=n-1
+    return fact
+print(factI(5))
+
+def factR(n):
+    if n<0 or n==0 or n==1:
+        return 1
+    else:
+        return n*factR(n-1)
+
+print(factR(6))
+
+120
+720
+
+4.# Write a program that computes the decimal equivalent of the binary number 10011?
+
+num=10011
+string=str(num)
+mylist=list(string)
+print(mylist)
+val=0
+for i in range(len(mylist)):
+    j=mylist.pop()
+    if j=='1':
+        val=val+pow(2,i)
+print(val)
+
+['1', '0', '0', '1', '1']
+19
+
+5.Implement a function that meets the specification below. Use a try-except block.
+
+def sumDigits(s):
+    res=0
+    for i in s:
+        if i.isdigit():
+            try:
+                res=res+int(i)
+            except:
+                print("TypeError Exception")
+    print(res)
+
+sumDigits("a2b3cj9")
+
+14
+
+6.Implement a function that satisfies the specification. Use a try-except block.
+
+def findAnEven(l):
+    even="false"
+    for i in l:
+        if i%2==0:
+            print(i)
+            even="true"
+            break
+    if even=="false":
+        print("No even")
+
+findAnEven([3,6,5,7,8,1,14])
+
+6
+
+7.A palindrome is a word that is spelled the same backward and forward, like "Malayalam" and "Noon" . Recursively, a word is a palindrome if the first and last letters are the same and the middle is a palindrome. Write a function called is_palindrome that takes a string argument and returns True if it is a palindrome and False otherwise. Remember that you can use the built-in function len to check the length of a string.
+
+def isPalindrome(s):
+    r=""
+    for i in s:
+        if i.isalpha():
+            k=i.lower()
+            r=r+k
+            j=r [::-1]
+    if j==r:
+        return True
+    else:
+        return False
+def testIsPalindrome(s):
+    if isPalindrome(s)==True:
+        print("The given string is palindrome")
+    else:
+        print("The given string is not a palindrome")
+
+
+testIsPalindrome("Malay al.am/")
+
+The given string is palindrome
+
+8.The built-in function eval takes a string and evaluates it using the Python interpreter. For example:
+
+def eval_loop():
+    import math
+    while True:
+        s=input("Enter the string: ")
+        if s=='done':
+            break
+        else:
+            res=eval(s)
+            print(res)
+eval_loop()
+
+Enter the string: 1 + 2 * 3
+7
+Enter the string: math.sqrt(5)
+2.23606797749979
+Enter the string: type(math.pi)
+<class 'float'>
+
+9.a) Write a function NewtonSqrt() to abstract the Newton's Method of calculation Square roots.
+
+b) Write a function named test_square_root that prints a table like this:
+ 
+
+def NewtonSqrt(x):
+    a=x
+    for i in range(20):
+        x = (x + a / x) / 2
+    return x
+
+
+
+def test_square_root():
+    import math
+    numbers=[]
+    newtonssqrt=[]
+    mathsqrt=[]
+    difference=[]
+    for i in range(1,10):
+        numbers.append(float(i))
+        newtonssqrt.append(NewtonSqrt(i))
+        mathsqrt.append(math.sqrt(i))
+    for i in range(len(newtonssqrt)):
+        difference.append(abs(newtonssqrt[i]-mathsqrt[i]))
+    print("{:^13}|{:^20}|{:^20}|{:^25}".format("Number","NewtonsSqrt","Math.Sqrt","Difference"))
+    print("-"*12,"|","-"*18,"|","-"*18,"|","-"*24)
+    for i in range(len(numbers)):
+        print("{:>13}|{:>20}|{:>20}|{:>25}".format(numbers[i],newtonssqrt[i],mathsqrt[i],difference[i]))
+
+test_square_root()
+
+
+   Number    |    NewtonsSqrt     |     Math.Sqrt      |       Difference        
+------------ | ------------------ | ------------------ | ------------------------
+          1.0|                 1.0|                 1.0|                      0.0
+          2.0|   1.414213562373095|  1.4142135623730951|    2.220446049250313e-16
+          3.0|  1.7320508075688772|  1.7320508075688772|                      0.0
+          4.0|                 2.0|                 2.0|                      0.0
+          5.0|    2.23606797749979|    2.23606797749979|                      0.0
+          6.0|   2.449489742783178|   2.449489742783178|                      0.0
+          7.0|  2.6457513110645907|  2.6457513110645907|                      0.0
+          8.0|    2.82842712474619|  2.8284271247461903|    4.440892098500626e-16
+          9.0|                 3.0|                 3.0|                      0.0
