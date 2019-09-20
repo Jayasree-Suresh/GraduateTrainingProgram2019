@@ -1,0 +1,64 @@
+3.
+def upper_lower_count(s):
+    upper=0
+    lower=0
+    for i in s:
+	asc=ord(i)
+	if asc in range(65,90):
+	   upper=upper+1
+        elif asc in range(97,122):
+           lower=lower+1
+
+    print("No. of Upper case characters :",upper)
+    print("No. of Lower case characters :",lower)
+
+upper_lower_count('The quick Brow Fox')
+
+4.
+sample=[1,2,3,3,3,3,4,5]
+unique=[]
+for i in sample:
+    if i not in unique:
+        unique.append(i)
+print(unique)
+
+6.
+string="green-red-yellow-black-white"
+
+mylist=string.split("-")
+mylist.sort()
+res="-".join(mylist)
+print(res)
+
+
+string="green-red-yellow-black-white"
+
+mylist=string.split("-")
+mylist.sort()
+res=""
+for i in mylist:
+   res=res+i+"-"
+
+print(res)
+
+
+2.
+fl=open(myfile.txt,r)
+fl.read(len(myfile.txt))
+
+5.
+def pangram(string):
+	string1="abcdefghijklmnopqrstuvwxyz"
+	for i in string1:
+	   if i not in string.lower():
+                print("The given string is not a pangram")
+	   else:
+		print("The given string is a pangram")
+
+1.f1=open(myfile1.txt,r)
+  f2=open(myfile2.txt,r)
+  f3=open(myfile3.txt,w)
+  if read(len(myfile1.txt))==read(len(myfile2.txt)):
+  for i in range(1,len(myfile1.txt)):
+     f3=f1.readline()+f2.readline()
+	
