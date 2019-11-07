@@ -1,0 +1,243 @@
+1) write a python script to get a student details from user using raw_input:
+
+i) roll_id
+
+ii) name
+
+iii) class name
+
+iv) marks - '58,67,89,99'
+
+ 
+
+# not going to declare the dictionary
+
+stud_dict = { 'roll_id':{'name':'sakthi','class':'7','marks':[1,2,3,4,5]},
+
+              'roll_id2':{'name':'sakthi2','class':'8','marks':[1,2,3,4,56]}
+
+            }
+
+hints:
+
+d ={}
+
+d[k] = sub_dict
+
+sub_dict[k] =v
+
+ 
+stud_dict = {}
+while True:
+    roll_id=input("Enter your roll_id: ")
+    name=input("Enter your name: ")
+    classname=input("Enter the class name: ")
+    marks=input("Enter all marks as comma separated: ")
+    lst = marks.split(",")
+    sub_dict = {}
+    sub_dict["name"] = name
+    sub_dict["class"] = classname
+    sub_dict["marks"] = lst
+    stud_dict[roll_id] = sub_dict
+    a=input("Do you want to add more students?? Y or N: ")
+    if a=='Y':
+        continue
+    else:
+        break
+print(stud_dict)
+
+
+ 
+
+2)
+
+a)Given the following dictionary:
+
+      inventory = {
+
+                   'gold' : 500,
+
+                   'pouch' : ['flint', 'twine', 'gemstone'],
+
+                   'backpack' : ['xylophone','dagger', 'bedroll','bread loaf']
+
+                }
+
+       Try to do the followings:
+
+       i)Add a key to inventory called 'pocket'.
+
+       ii)Set the value of 'pocket' to be a list consisting of the strings 'seashell', 'strange berry', and 'lint'.
+
+       iii).sort()the items in the list stored under the 'backpack' key.
+
+       iv)Then .remove('dagger') from the list of items stored under the 'backpack' key.
+
+       v)Add 50 to the number stored under the 'gold' key.
+
+inventory = {
+    'gold' : 500,
+    'pouch' : ['flint', 'twine', 'gemstone'],
+    'backpack' : ['xylophone','dagger', 'bedroll','bread loaf']}
+
+inventory['pocket']=""
+inventory['pocket']=['seashell','strange berry','lint']
+inventory['backpack'].sort()
+inventory['backpack'].remove('dagger')
+inventory['gold']+=50
+print(inventory)
+
+
+
+b) create a student details dictionary having {'student1':[marks1,marks2, marks3],'student2':[marks1,marks2,marks3]}
+
+       i)Create the dictionary as mentioned above
+
+       ii) need to perform total and average of the marks for each student
+
+mydict={'Jayasree':[92,95,88],'Jam':[100,96,90]}
+for i,j in mydict.items():
+    Total=sum(j)
+    Average=Total/len(j)
+    print(i," : Total= ",Total,"Average= ",Average)
+
+
+ 
+
+c)  write the below contents to  a file named 'marks.txt' using python script
+
+science = 50
+
+maths = 90
+
+english = 85
+
+tamil = 92
+
+ 
+
+       i) read the file and calculate the total sum of marks available there
+
+ import re
+with open('marks.txt','w') as f:
+    f.writelines(['science = 50\n','maths = 90\n','english = 85\n','tamil = 92'])
+with open('marks.txt') as f:
+    data=f.readlines()
+    sum=0
+    lst=[]
+    for i in data:
+        res=re.findall(r'\d+',i)
+        # for i in res:
+        #     lst.append(i)
+        lst.extend(res)
+    for i in lst:
+        sum+=int(i)
+print(sum)
+
+ 
+
+i) write a python script to make a simple calculator that can add, subtract, multiply and divide using functions
+
+   a) have four functions with two arguments
+
+   b) get the values from user
+
+   c) Use try and except
+
+ 
+def add(a,b):
+    c=a+b
+    print('Addition : ',c)
+
+def sub(a,b):
+    c=a-b
+    print('Subtraction : ',c)
+
+def multiply(a,b):
+    c=a*b
+    print('Multiplication :',c)
+
+def division(a,b):
+     try:
+        c=a/b
+        print('Division : ',c)
+     except ZeroDivisionError as e:
+        print(e)
+
+
+try:
+    a=int(input("Enter a: "))
+    b=int(input("Enter b: "))
+    add(a,b)
+    sub(a,b)
+    multiply(a,b)
+    division(a,b)
+except ValueError as e:
+    print(e)
+
+
+ii)Define a function that can accept two strings as input and concatenate them and then print it as a output
+
+ 
+def concat(s1,s2):
+    print(s1+s2)
+
+s1=input("Enter string 1: ")
+s2=input("Enter string 2: ")
+
+concat(s1,s2)
+
+
+iii) write a python script having functions defined to perfrom - sum_digits(1738)
+
+output should be 1+7+3+8 = 18
+
+def sum_digits(n):
+    num=str(n)
+    sum=0
+    for i in num:
+        sum+=int(i)
+    print(sum)
+
+n=int(input("Enter the no: "))
+sum_digits(n)
+ 
+
+iv)  write the below contents to  a file named 'marks.txt' using python script using functions
+
+science = 50
+
+maths = 90
+
+english = 85
+
+tamil = 92
+
+       i) read the file and calculate the total sum of marks available there
+
+def read_file():
+
+def write_file():
+
+
+def write_file():
+    with open('marks.txt', 'w') as f:
+        f.writelines(['science = 50\n', 'maths = 90\n', 'english = 85\n', 'tamil = 92'])
+
+write_file()
+
+import re
+def read_file():
+        with open('marks.txt') as f:
+            data = f.readlines()
+            sum = 0
+            lst = []
+            for i in data:
+                res = re.findall(r'\d+', i)
+                lst.extend(res)
+            for i in lst:
+                sum += int(i)
+        print(sum)
+
+
+read_file()

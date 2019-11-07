@@ -1,0 +1,216 @@
+1:For the below binary number , count the Occurrence of sequence '101'
+
+ 
+
+10101010100111101
+
+
+s="10101010100111110101"
+
+c=0
+print(len(s))
+for i in range(0,len(s)-2):
+    # if i != len(s)-1 and i != len(s)-2:
+        if s[i]=="1" and s[i+1]=="0" and s[i+2]=="1":
+            c=c+1
+print(c)
+
+count = 0
+index = 0
+sub = '101'
+while True:
+    a = s.find(sub,index)
+    if a > -1:
+        index = a+1
+        count = count+1
+    else:
+        break
+print(count)
+
+
+2: For the below matrix , calculate both the diagonal and print the value.(Hint: consider each row as a list object)
+
+ 
+
+3 8 7
+
+8 7 9
+
+1 6 0
+
+mylist=[[3,8,7],[8,7,9],[1,6,0]]
+ld=0
+rd=0
+for i in range(len(mylist)):
+    ld+=mylist[i][i]
+    rd+=mylist[i][len(mylist)-i-1]
+print(ld,rd)
+ 
+
+3 :Rotate the above matrix by 90 degree anticlockwise
+
+hint :convert row to column and column to row
+
+mylist=[[3,8,7],[8,7,9],[1,6,0]]
+lst=[]
+for i in mylist:
+    i.reverse()
+    lst.append(i)
+print(lst)
+for i in range(len(lst)):
+    for j in range(len(mylist[i])):
+        print(mylist[j][i],end=" ")
+    print("\n")
+
+
+ 
+
+4: The string abcabcabc........ goes till 1111 . print the number of Occurrence of 'ca'
+
+s="abc"
+s1=""
+flag=True
+while True:
+    for i in s:
+        s1+=i
+        if len(s1)==1111:
+            flag=False
+            break
+    if flag==False:
+        break
+print(s1)
+ 
+
+5: Convert the string as below.
+
+input : abcDEwQ
+
+output: ABCdeWq
+
+inp="abcDEwQ"
+op=""
+for i in inp:
+    if ord(i) in range(65,91):
+        op=op+chr(ord(i)+32)
+    elif ord(i) in range(97,123):
+        op=op+chr(ord(i)-32)
+
+print(op)
+
+
+6: Find the ordered longest alphabetical sequence.
+
+ 
+
+abccdefabcdefae
+
+s="abccdefabcdefae"
+print(len(s))
+lst=[]
+a=""
+for i in range(len(s)-1):
+    a+=s[i]
+    if s[i]>=s[i+1]:
+        lst.append(a)
+        a=""
+    if i==len(s)-2:
+        a=a+s[len(s)-1]
+        lst.append(a)
+print(lst)
+largest=''
+for i in range(len(lst)):
+    if len(lst[i])>len(largest):
+        largest=lst[i]
+print(largest)
+
+
+7:Find the sum of multiples of 3 and 5 between 1 to 1000
+
+
+sum=0
+for i in range(1,1001):
+    if i%3==0 or i%5==0:
+        sum=sum+i
+print(sum)
+
+
+8: Display the phone number as below and also print the last 4 digit in ascending order
+
+input : 9993452133
+
+output :xxx-xxx-xxxx
+
+ 
+
+9: "There are 26 alphabets in English out of which 5 are vowels and 21 are consonants"
+
+Count the sum of numbers in the above statement using regular expression
+
+import re
+string="There are 26 alphabets in English out of which 5 are vowels and 21 are consonants"
+res=re.findall('\d+',string)
+sum=0
+for i in res:
+    sum+=int(i)
+print(res)
+print(sum)
+
+
+10.anagram : sample inputs : tear, rate ; Find if these words are anagram or not. Program should accept two inputs from user.
+
+ 
+a=input()
+b=input()
+if sorted(a)==sorted(b):
+    print("Anagram")
+else:
+    print("Not an Anagram")
+
+
+11;With a given integral number n, change the program to generate a dictionary that contains (i, cube of i) such that is an integral number between 1 and n (both included).
+
+and then the program should print the dictionary.
+
+Suppose the following input is supplied to the program:
+
+7
+
+Then, the output should be:
+
+{1: 1, 2: 8, 3: 27, 4: 64, 5: 125, 6: 216, 7: 373}
+
+Take the input from the user via console.
+
+mydict={}
+inp=int(input("Enter the no: "))
+for i in range(1,inp+1):
+    mydict[i]=i**3
+print(mydict)
+
+
+12: find if the below numbers are Armstrong number
+
+ 
+
+a: 153
+
+b:1634
+
+c: 876
+
+
+inp=int(input())
+n=inp
+len=int(len(str(n)))
+sum=0
+while n>0:
+    d=n%10
+    sum+=d**len
+    n=n//10
+if inp==sum:
+    print("It is an armstrong number")
+else:
+    print("It is not an armstrong number")
+
+
+ 
